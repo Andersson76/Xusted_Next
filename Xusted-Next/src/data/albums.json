@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "title": "Ice Picker",
+    "songs": ["Ice Picker", "Cold Horizon", "Fishermans Friend"],
+    "image": "/images/albums/IcePicker.png",
+    "year": 2019
+  },
+  {
+    "id": 2,
+    "title": "Tunnel Visions",
+    "songs": ["Tunnel 1", "Tunnel 2"],
+    "image": "/images/albums/TunnelVisions.png",
+    "year": 2020
+  },
+  {
+    "id": 3,
+    "title": "Awake Slumber",
+    "songs": ["Awake Slumber"],
+    "image": "/images/albums/AwakeSlumber.png",
+    "year": 2020
+  },
+  {
+    "id": 4,
+    "title": "TYO OYT",
+    "songs": ["TYO", "OYT"],
+    "image": "/images/albums/tyooyt.png",
+    "year": 2021
+  },
+  {
+    "id": 5,
+    "title": "Receptor",
+    "songs": ["Receptor", "Receptor L2"],
+    "image": "/images/albums/receptor.png",
+    "year": 2021
+  },
+  {
+    "id": 6,
+    "title": "Busted",
+    "songs": ["Busted"],
+    "image": "/images/albums/busted.png",
+    "year": 2021
+  },
+  {
+    "id": 7,
+    "title": "Maze",
+    "songs": ["Maze", "Sensor"],
+    "image": "/images/albums/maze.png",
+    "year": 2022
+  }
+]
