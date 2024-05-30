@@ -4,6 +4,8 @@ import React, { useEffect } from 'react'
 import { useAlbum } from '../contexts/AlbumContext'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const HomePage = () => {
   const { albums, setAlbums } = useAlbum()
@@ -26,12 +28,19 @@ const HomePage = () => {
       <Navbar />
       <h1>Albums</h1>
       <ul>
-        {albums.map((album: { id: string; title: string; cover: string }) => (
+        {albums.map((album) => (
           <li key={album.id}>
-            <a href={`/albums/${album.id}`}>
-              <img src={album.cover} alt={album.title} />
-              <p>{album.title}</p>
-            </a>
+            <Link href={`/albums/${album.id}`} passHref legacyBehavior>
+              <a>
+                <Image
+                  src={album.cover}
+                  alt={album.title}
+                  width={200}
+                  height={200}
+                />
+                <p>{album.title}</p>
+              </a>
+            </Link>
           </li>
         ))}
       </ul>
