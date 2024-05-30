@@ -1,22 +1,20 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+// app/layout.tsx
+import '../styles/globals.css'
+import { AlbumProvider } from '../contexts/AlbumContext'
+import Navbar from '../components/Navbar'
+import type { ReactNode } from 'react'
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Xusted - Next App",
-  description: "Xusted music",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  );
+    <AlbumProvider>
+      <html lang="en">
+        <body>
+          <Navbar />
+          <main>{children}</main>
+        </body>
+      </html>
+    </AlbumProvider>
+  )
 }
+
+export default Layout

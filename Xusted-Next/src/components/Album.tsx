@@ -1,37 +1,25 @@
-import { motion } from 'framer-motion'
 import React from 'react'
-import Image from 'next/image'
+import { motion } from 'framer-motion'
 
-type AlbumProps = {
+interface AlbumProps {
+  id: string
   title: string
-  songs: string[]
-  image: string
+  cover: string
+  songs: { title: string }[]
 }
 
-const Album: React.FC<AlbumProps> = ({ title, songs, image }) => {
+const Album: React.FC<AlbumProps> = ({ id, title, cover, songs }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="album"
-    >
-      <Image
-        src={image}
-        alt={title}
-        width={300}
-        height={300}
-        className="rounded-md"
-      />
-      <h1 className="text-3xl font-bold mb-4">{title}</h1>
+    <motion.div whileHover={{ scale: 1.05 }} className="album">
+      <img src={cover} alt={title} className="album-cover" />
+      <h2>{title}</h2>
       <ul>
         {songs.map((song, index) => (
-          <li key={index} className="mb-2">
-            {song}
-          </li>
+          <li key={index}>{song.title}</li>
         ))}
       </ul>
     </motion.div>
   )
 }
+
 export default Album
