@@ -1,11 +1,12 @@
 'use client'
-
+import Head from 'next/head'
 import React, { useEffect } from 'react'
 import { useAlbum } from '../contexts/AlbumContext'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
 import Link from 'next/link'
 import Image from 'next/image'
+
 
 const HomePage = () => {
   const { albums, setAlbums } = useAlbum()
@@ -25,7 +26,6 @@ const HomePage = () => {
 
   return (
     <div>
-      <Navbar />
       <h1>Albums</h1>
       <ul>
         {albums.map((album) => (
