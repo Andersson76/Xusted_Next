@@ -37,7 +37,7 @@ const Albums = () => {
                   height={200}
                   className="rounded-md mb-2 shadow-xl p-4"
                 />
-                <h2 className="text-xl font-bold">{album.title}</h2>
+                {/* <h2 className="text-xl font-bold">{album.title}</h2> */}
               </a>
             </Link>
           </li>

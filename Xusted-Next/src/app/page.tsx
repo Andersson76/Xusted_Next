@@ -27,7 +27,7 @@ const HomePage = () => {
   return (
     <div>
       <h1>Albums</h1>
-      <ul>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-2">
         {albums.map((album) => (
           <li key={album.id}>
             <Link href={`/albums/${album.id}`} passHref legacyBehavior>
@@ -38,7 +38,7 @@ const HomePage = () => {
                   width={200}
                   height={200}
                 />
-                <p>{album.title}</p>
+                {/* <p>{album.title}</p> */}
               </a>
             </Link>
           </li>
