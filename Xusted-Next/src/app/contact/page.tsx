@@ -7,9 +7,9 @@ import { motion } from 'framer-motion'
 const Contact = () => {
   return (
     <motion.div
-      initial={{ x: -200 }}
+      initial={{ x: -500 }}
       animate={{ x: 0 }}
-      transition={{ type: 'spring', stiffness: 100 }}
+      transition={{ type: 'spring', stiffness: 50 }}
       className="contact"
     >
       <h1 className="text-3xl font-bold mb-4">Contact</h1>
@@ -27,7 +27,7 @@ const Contact = () => {
           setSubmitting(false)
         }}
       >
-        <Form className="space-y-4">
+        <Form className="space-y-4 lg-mx-40 mx-10 mt-40">
           <div>
             <label
               htmlFor="name"

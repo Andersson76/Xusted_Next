@@ -12,7 +12,8 @@ body {
 }
 
 .navbar li {
-  display: inline;
+  display: flex;
+  flex-direction: ;
   margin-right: 20px;
 }
 
