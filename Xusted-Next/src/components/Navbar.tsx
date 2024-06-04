@@ -63,7 +63,7 @@ export default function Navbar() {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10 bg-black bg-opacity-50" />
-        <DialogPanel className="fixed top-28 inset-x-0 z-20 w-full overflow-y-auto bg-white px-6 py-6">
+        <DialogPanel className="fixed top-28 inset-x-0 z-20 w-fit overflow-y-auto bg-white bg-opacity-75 px-6 py-6 rounded-md ml-10">
           <div className="flex items-center justify-between">
             <button
               type="button"
@@ -71,10 +71,10 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              {/*<XMarkIcon className="h-6 w-6" aria-hidden="true" /> */}
             </button>
           </div>
-          <div className="mt-6 space-y-2">
+          <div className="space-y-2">
             {navigation.map((item) => (
               <Link key={item.name} href={item.href} legacyBehavior>
                 <a
