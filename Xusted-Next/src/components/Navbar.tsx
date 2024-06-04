@@ -63,7 +63,7 @@ export default function Navbar() {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-white px-6 py-6">
+        <DialogPanel className="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-white-800 px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="flex flex-1">
               <button
@@ -89,7 +89,7 @@ export default function Navbar() {
               </Link>
             </div>
           </div>
-          <div className="mt-6 space-y-2">
+          <div className="mt-20 space-y-2">
             {navigation.map((item) => (
               <Link key={item.name} href={item.href} legacyBehavior>
                 <a
@@ -106,23 +106,3 @@ export default function Navbar() {
     </header>
   )
 }
-
-/* const Navbar = () => {
-  return (
-    <nav className="navbar shadow">
-      <ul>
-        <li>
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/albums">Albums</Link>
-        </li>
-        <li>
-          <Link href="/contact">Contact</Link>
-        </li>
-      </ul>
-    </nav>
-  )
-}
-
-export default Navbar */
