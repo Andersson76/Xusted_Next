@@ -1,12 +1,14 @@
 'use client'
-import Head from 'next/head'
+
 import React, { useEffect } from 'react'
 import { useAlbum } from '../contexts/AlbumContext'
-import Navbar from '../components/Navbar'
 import axios from 'axios'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Inter } from 'next/font/google'
+import styles from '@/styles/Home.module.css'
 
+const inter = Inter({ subsets: ['latin'] })
 
 const HomePage = () => {
   const { albums, setAlbums } = useAlbum()
@@ -25,26 +27,28 @@ const HomePage = () => {
   }, [setAlbums])
 
   return (
-    <div>
-      <h1>Albums</h1>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-2">
-        {albums.map((album) => (
-          <li key={album.id}>
-            <Link href={`/albums/${album.id}`} passHref legacyBehavior>
-              <a>
-                <Image
-                  src={album.cover}
-                  alt={album.title}
-                  width={200}
-                  height={200}
-                />
-                {/* <p>{album.title}</p> */}
-              </a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div className={styles.center}>
+        <main className={styles.main}>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-2">
+            {albums.map((album) => (
+              <li key={album.id}>
+                <Link href={`/albums/${album.id}`} passHref legacyBehavior>
+                  <a>
+                    <Image
+                      src={album.cover}
+                      alt={album.title}
+                      width={200}
+                      height={200}
+                    />
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </main>
+      </div>
+    </>
   )
 }
 
