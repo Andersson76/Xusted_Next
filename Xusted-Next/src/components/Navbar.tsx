@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import styles from '@/styles/Home.module.css'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -16,9 +17,9 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white">
+    <header className="fixed top-0 z-50">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className={`mx-auto flex items-center justify-between p-6 lg:px-8 ${styles.thirteen}`}
         aria-label="Global"
       >
         <div className="flex flex-1">
