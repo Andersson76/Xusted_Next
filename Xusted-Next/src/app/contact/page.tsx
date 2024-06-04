@@ -12,7 +12,7 @@ const Contact = () => {
       transition={{ type: 'spring', stiffness: 50 }}
       className="contact"
     >
-      <h1 className="text-3xl font-bold mb-4">Contact</h1>
+
       <Formik
         initialValues={{ name: '', email: '', message: '' }}
         validationSchema={Yup.object({
@@ -27,7 +27,8 @@ const Contact = () => {
           setSubmitting(false)
         }}
       >
-        <Form className="space-y-4 lg-mx-40 mx-10 mt-40">
+        <Form className="space-y-4 lg-mx-40 mx-10 mt-40 mb-20">
+        <h3 className="text-xl font-bold mb-10 text-center">Contact</h3>
           <div>
             <label
               htmlFor="name"
@@ -84,7 +85,7 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="py-2 px-4 bg-blue-500 text-white rounded-md"
+            className="py-2 px-4 bg-blue-500 text-white rounded-md w-full"
           >
             Send
           </button>
