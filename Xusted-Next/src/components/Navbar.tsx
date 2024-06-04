@@ -62,34 +62,19 @@ export default function Navbar() {
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >
-        <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-white-800 px-6 py-6">
+        <div className="fixed inset-0 z-10 bg-black bg-opacity-50" />
+        <DialogPanel className="fixed top-28 inset-x-0 z-20 w-full overflow-y-auto bg-white px-6 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex flex-1">
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
-            </div>
-            <Link href="#" legacyBehavior>
-              <a className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
-                <h1 className="h-8 w-auto text-gray-700">XUSTED</h1>
-              </a>
-            </Link>
-            <div className="flex flex-1 justify-end">
-              <Link href="#" legacyBehavior>
-                <a className="text-sm font-semibold leading-6 text-gray-900">
-                  Log in <span aria-hidden="true">&rarr;</span>
-                </a>
-              </Link>
-            </div>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+            </button>
           </div>
-          <div className="mt-20 space-y-2">
+          <div className="mt-6 space-y-2">
             {navigation.map((item) => (
               <Link key={item.name} href={item.href} legacyBehavior>
                 <a
