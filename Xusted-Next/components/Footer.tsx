@@ -1,5 +1,6 @@
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from '@/styles/Home.module.css'
+//import styles from '@/styles/Home.module.css'
 import { Icon } from '@iconify/react'
 import tidalIcon from '@iconify/icons-simple-icons/tidal'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -18,7 +19,7 @@ const navigation = [
     href: 'https://www.youtube.com/channel/UCUJrqOFKzMfDCGenCvLLwdQ',
     icon: () => (
       <FontAwesomeIcon
-        icon={['fab', 'youtube']}
+        icon={faYoutube}
         beat
         size="2x"
         style={{
@@ -34,7 +35,7 @@ const navigation = [
     href: 'https://open.spotify.com/artist/11lVHxCjt7gVjwwPvPC8mG',
     icon: () => (
       <FontAwesomeIcon
-        icon={['fab', 'spotify']}
+        icon={faSpotify}
         bounce
         size="2x"
         style={{
@@ -50,13 +51,13 @@ const navigation = [
     href: 'https://music.apple.com/se/artist/xusted/1491482184',
     icon: () => (
       <FontAwesomeIcon
-        icon={['fab', 'itunes']}
+        icon={faItunes}
         shake
         size="2x"
         style={{
           paddingLeft: '12px',
           paddingRight: '12px',
-          marginBottom: '25px',
+          marginBottom: '15px',
         }}
       />
     ),
@@ -67,11 +68,10 @@ const navigation = [
     icon: () => (
       <Icon
         icon={tidalIcon}
-        width="60"
+        width="40"
         style={{
-          paddingLeft: '12px',
-          paddingRight: '12px',
-          marginBottom: '23px',
+          marginLeft: '10px',
+          marginRight: '20px',
         }}
       />
     ),
@@ -80,7 +80,7 @@ const navigation = [
 
 export default function Footer() {
   return (
-    <footer >
+    <footer>
       <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center space-x-6 md:order-2">
           {navigation.map((item) => (
