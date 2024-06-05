@@ -26,6 +26,8 @@ body {
   display: flex;
   margin-top: 150px;
   margin-left: 70px;
+  border-radius: 20px;
+  text-align: center;
 }
 
 .album-cover {
