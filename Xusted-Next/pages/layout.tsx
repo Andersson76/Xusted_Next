@@ -1,4 +1,4 @@
-// app/layout.tsx
+import React from 'react'
 import '../styles/globals.css'
 import { AlbumProvider } from 'contexts/AlbumContext'
 import Navbar from 'components/Navbar'
