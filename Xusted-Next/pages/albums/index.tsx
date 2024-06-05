@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { useAlbum } from 'contexts/AlbumContext'
+import { useAlbum } from '../../contexts/AlbumContext'
 import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'

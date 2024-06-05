@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/globals.css'
+//import '../styles/globals.css'
 import { AlbumProvider } from 'contexts/AlbumContext'
 import Navbar from 'components/Navbar'
 import type { ReactNode } from 'react'
