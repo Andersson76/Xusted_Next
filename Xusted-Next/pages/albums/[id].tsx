@@ -3,7 +3,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { useAlbum } from '../../contexts/AlbumContext'
-import Album from 'components/Album'
+import Album from '../../components/Album'
 
 export default function AlbumPage() {
   const { albums } = useAlbum()

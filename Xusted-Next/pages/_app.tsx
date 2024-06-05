@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar'
 import '../styles/globals.css'
 //import '@/fontawesome'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-//import { config } from '@fortawesome/fontawesome-svg-core'
+import { config } from '@fortawesome/fontawesome-svg-core'
 import Footer from '../components/Footer'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
