@@ -6,11 +6,11 @@ import axios from 'axios'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const HomePage = () => {
+export default function HomePage() {
   const { albums, setAlbums } = useAlbum()
 
   useEffect(() => {
@@ -51,5 +51,3 @@ const HomePage = () => {
     </>
   )
 }
-
-export default HomePage

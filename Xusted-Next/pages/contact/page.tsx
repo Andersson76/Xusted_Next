@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { motion } from 'framer-motion'
 
-const Contact = () => {
+export default function Contact() {
   return (
     <motion.div
       initial={{ x: -500 }}
@@ -12,7 +12,6 @@ const Contact = () => {
       transition={{ type: 'spring', stiffness: 50 }}
       className="contact"
     >
-
       <Formik
         initialValues={{ name: '', email: '', message: '' }}
         validationSchema={Yup.object({
@@ -28,7 +27,7 @@ const Contact = () => {
         }}
       >
         <Form className="space-y-4 lg-mx-40 mx-10 mt-40 mb-20">
-        <h3 className="text-xl font-bold mb-10 text-center">Contact</h3>
+          <h3 className="text-xl font-bold mb-10 text-center">Contact</h3>
           <div>
             <label
               htmlFor="name"
@@ -94,5 +93,3 @@ const Contact = () => {
     </motion.div>
   )
 }
-
-export default Contact
