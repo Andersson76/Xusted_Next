@@ -1,12 +1,12 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { useAlbum } from '../contexts/AlbumContext'
+import { useAlbum } from '@/contexts/AlbumContext'
 import axios from 'axios'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from '../src/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,7 +28,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className={styles.center}>
+      <div className={styles.grid}>
         <main className={styles.main}>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-2">
             {albums.map((album) => (

@@ -28,7 +28,7 @@ body {
   height: auto;
 }
 
-.contact-page {
+.contact {
   max-width: 600px;
   margin: 0 auto;
 }
@@ -125,7 +125,7 @@ body {
   overflow-x: hidden;
 }
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -133,7 +133,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
 a {
   color: inherit;
