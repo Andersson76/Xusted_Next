@@ -258,7 +258,14 @@
     );
     z-index: 1;
   } */
-
+.footer {
+  display: flex;
+  background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgb(var(--background-end-rgb)) 40%
+    );
+}
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
