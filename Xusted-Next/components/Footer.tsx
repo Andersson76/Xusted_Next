@@ -1,6 +1,5 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from '../styles/Home.module.css'
 import { Icon } from '@iconify/react'
 import tidalIcon from '@iconify/icons-simple-icons/tidal'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -80,8 +79,11 @@ const navigation = [
 
 export default function Footer() {
   return (
-    <footer className={styles.card}>
-      <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+    <footer>
+      <div
+        className={`
+      mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8 `}
+      >
         <div className="flex justify-center space-x-6 md:order-2">
           {navigation.map((item) => (
             <a key={item.name} href={item.href} className="hover:text-gray-500">
