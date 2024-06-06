@@ -5,6 +5,9 @@ import { useAlbum } from '../../contexts/AlbumContext'
 import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export default function Albums() {
   const { albums, setAlbums } = useAlbum()
@@ -23,9 +26,11 @@ export default function Albums() {
   }, [albums, setAlbums])
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-4">Albums</h1>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-2">
+    <div className="mt-40">
+      <h1 className={`text-2xl font-bold text-gray-800 text-center ${inter}`}>
+        EP & Singles
+      </h1>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-10">
         {albums.map((album) => (
           <li key={album.id} className="bg-white p-1">
             <Link href={`/albums/${album.id}`} passHref legacyBehavior>

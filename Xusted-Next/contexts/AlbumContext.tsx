@@ -13,7 +13,7 @@ interface Album {
   id: string
   title: string
   cover: string
-  songs: { title: string }[]
+  songs: string[]
 }
 
 interface AlbumContextProps {

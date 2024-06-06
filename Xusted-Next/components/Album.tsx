@@ -9,7 +9,7 @@ interface AlbumProps {
   id: string
   title: string
   cover: string
-  songs: { title: string }[]
+  songs: string[]
 }
 
 const Album: React.FC<AlbumProps> = ({ id, title, cover, songs }) => {
@@ -27,7 +27,7 @@ const Album: React.FC<AlbumProps> = ({ id, title, cover, songs }) => {
           <h2>{title}</h2>
           <ul>
             {songs.map((song, index) => (
-              <li key={index}>{song.title}</li>
+              <li key={index}>{song}</li>
             ))}
           </ul>
         </a>
