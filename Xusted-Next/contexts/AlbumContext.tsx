@@ -19,6 +19,7 @@ interface Album {
 interface AlbumContextProps {
   albums: Album[]
   setAlbums: React.Dispatch<React.SetStateAction<Album[]>>
+  addAlbum: (album: Album) => void
 }
 
 const AlbumContext = createContext<AlbumContextProps | undefined>(undefined)
@@ -39,8 +40,12 @@ export const AlbumProvider = ({ children }: { children: ReactNode }) => {
     fetchAlbums()
   }, [])
 
+  const addAlbum = (newAlbum: Album) => {
+    setAlbums((prevAlbums) => [...prevAlbums, newAlbum])
+  }
+
   return (
-    <AlbumContext.Provider value={{ albums, setAlbums }}>
+    <AlbumContext.Provider value={{ albums, setAlbums, addAlbum }}>
       {children}
     </AlbumContext.Provider>
   )
