@@ -4,10 +4,74 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { motion } from 'framer-motion'
+import styled from 'styled-components'
+
+const Container = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 80px;
+`
+
+const FormContainer = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`
+
+const Label = styled.label`
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #333;
+`
+
+const Input = styled(Field)`
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+`
+
+const TextArea = styled(Field)`
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+`
+
+const ErrorMessageStyled = styled(ErrorMessage)`
+  color: red;
+  font-size: 0.875rem;
+`
+
+const SubmitButton = styled.button`
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #0070f3;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #005bb5;
+  }
+`
 
 export default function Contact() {
   return (
-    <motion.div
+    <Container
       initial={{ x: -500 }}
       animate={{ x: 0 }}
       transition={{ type: 'spring', stiffness: 50 }}
@@ -27,70 +91,41 @@ export default function Contact() {
           setSubmitting(false)
         }}
       >
-        <Form className="space-y-4 lg-mx-40 mx-10 mt-40 mb-20">
+        <FormContainer>
           <h3 className="text-xl font-bold mb-10 text-center">Contact</h3>
           <div>
-            <label
+            <Label
               htmlFor="name"
               className="block text-sm font-medium text-gray-700"
             >
               Name
-            </label>
-            <Field
-              type="text"
-              name="name"
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-            />
-            <ErrorMessage
-              name="name"
-              component="div"
-              className="text-red-500 text-sm"
-            />
+            </Label>
+            <Input type="text" name="name" />
+            <ErrorMessageStyled name="name" component="div" />
           </div>
           <div>
-            <label
+            <Label
               htmlFor="email"
               className="block text-sm font-medium text-gray-700"
             >
               Email
-            </label>
-            <Field
-              type="email"
-              name="email"
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-            />
-            <ErrorMessage
-              name="email"
-              component="div"
-              className="text-red-500 text-sm"
-            />
+            </Label>
+            <Input type="email" name="email" />
+            <ErrorMessageStyled name="email" component="div" />
           </div>
           <div>
-            <label
+            <Label
               htmlFor="message"
               className="block text-sm font-medium text-gray-700"
             >
               Message
-            </label>
-            <Field
-              as="textarea"
-              name="message"
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-            />
-            <ErrorMessage
-              name="message"
-              component="div"
-              className="text-red-500 text-sm"
-            />
+            </Label>
+            <TextArea as="textarea" name="message" />
+            <ErrorMessageStyled name="message" component="div" />
           </div>
-          <button
-            type="submit"
-            className="py-2 px-4 bg-blue-500 text-white rounded-md w-full"
-          >
-            Send
-          </button>
-        </Form>
+          <SubmitButton type="submit">Send</SubmitButton>
+        </FormContainer>
       </Formik>
-    </motion.div>
+    </Container>
   )
 }
