@@ -6,13 +6,13 @@ import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import * as Yup from 'yup'
+//import { Formik, Form, Field, ErrorMessage } from 'formik'
+//import * as Yup from 'yup'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Albums() {
-  const { albums, setAlbums, addAlbum } = useAlbum()
+  const { albums, setAlbums /* addAlbum */ } = useAlbum()
 
   useEffect(() => {
     if (albums.length === 0) {
@@ -50,7 +50,7 @@ export default function Albums() {
         ))}
       </ul>
 
-      <div className="p-10">
+      {/* <div className="p-10">
         <Formik
           initialValues={{ id: '', title: '' }}
           validationSchema={Yup.object({
@@ -123,7 +123,7 @@ export default function Albums() {
             </button>
           </Form>
         </Formik>
-      </div>
+      </div> */}
     </div>
   )
 }
