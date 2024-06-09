@@ -43,7 +43,7 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-        <Link href="#" legacyBehavior>
+        <Link href="/" legacyBehavior>
           <a className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <h1 className="h-8 w-auto text-gray-700">XUSTED</h1>
