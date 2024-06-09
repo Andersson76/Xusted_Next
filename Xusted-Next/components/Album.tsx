@@ -14,7 +14,7 @@ interface AlbumProps {
 
 const Album: React.FC<AlbumProps> = ({ id, title, cover, songs }) => {
   return (
-    <motion.div whileHover={{ scale: 1.05 }} className="album">
+    <motion.div whileHover={{ scale: 0.8 }} className="album">
       <Link href={`/albums/${id}`} passHref legacyBehavior>
         <a>
           <Image
