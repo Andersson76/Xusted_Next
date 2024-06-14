@@ -7,6 +7,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 //import { Inter } from 'next/font/google'
 import styles from '../styles/Home.module.css'
+import BackgroundCircles from 'components/BackgroundCircles'
 
 //const inter = Inter({ subsets: ['latin'] })
 
@@ -29,7 +30,8 @@ export default function HomePage() {
   return (
     <>
       <div className={`mt-40`}>
-        <main className={styles.center}>
+        <BackgroundCircles />
+        {/* <main className={styles.center}>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-2">
             {albums.map((album) => (
               <li key={album.id}>
@@ -46,7 +48,7 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-        </main>
+        </main> */}
       </div>
     </>
   )
