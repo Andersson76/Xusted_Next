@@ -13,9 +13,13 @@ import Footer from '../components/Footer'
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AlbumProvider>
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
+      <div className="wrapper">
+        <Navbar />
+        <main>
+          <Component {...pageProps} />
+        </main>
+        <Footer />
+      </div>
     </AlbumProvider>
   )
 }
