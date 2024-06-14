@@ -1,8 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 type Props = {}
 
+// eslint-disable-next-line no-empty-pattern
 function BackgroundCircles({}: Props) {
   return (
     <motion.div
