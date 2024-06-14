@@ -1,31 +1,31 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { useAlbum } from '../contexts/AlbumContext'
-import axios from 'axios'
-import Link from 'next/link'
-import Image from 'next/image'
+//import { useAlbum } from '../contexts/AlbumContext'
+//import axios from 'axios'
+//import Link from 'next/link'
+//import Image from 'next/image'
 //import { Inter } from 'next/font/google'
-import styles from '../styles/Home.module.css'
+//import styles from '../styles/Home.module.css'
 import BackgroundCircles from 'components/BackgroundCircles'
 
 //const inter = Inter({ subsets: ['latin'] })
 
 export default function HomePage() {
-  const { albums, setAlbums } = useAlbum()
+  /* const { albums, setAlbums } = useAlbum() */
 
   useEffect(() => {
     const fetchAlbums = async () => {
       try {
-        const response = await axios.get('/data/albums.json')
-        setAlbums(response.data)
+        //const response = await axios.get('/data/albums.json')
+        //setAlbums(response.data)
       } catch (error) {
         console.error('Error fetching albums:', error)
       }
     }
 
     fetchAlbums()
-  }, [setAlbums])
+  }, [])
 
   return (
     <>
