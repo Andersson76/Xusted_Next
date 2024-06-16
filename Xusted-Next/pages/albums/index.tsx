@@ -6,13 +6,12 @@ import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
-//import { Formik, Form, Field, ErrorMessage } from 'formik'
-//import * as Yup from 'yup'
+import { FiArrowRight } from 'react-icons/fi'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Albums() {
-  const { albums, setAlbums /* addAlbum */ } = useAlbum()
+  const { albums, setAlbums } = useAlbum()
 
   useEffect(() => {
     if (albums.length === 0) {
@@ -28,102 +27,37 @@ export default function Albums() {
   }, [albums, setAlbums])
 
   return (
-    <div className="mt-40">
-      <h1 className={`text-2xl font-bold text-gray-800 text-center ${inter}`}>
+    <div className={`mt-40`}>
+      <h1
+        className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xlfont-bold text-gray-700 text-center ${inter.className}`}
+      >
         EP & Singles
       </h1>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-10">
-        {albums.map((album) => (
-          <li key={album.id} className="bg-white p-1">
-            <Link href={`/albums/${album.id}`} passHref legacyBehavior>
-              <a>
-                <Image
-                  src={album.cover}
-                  alt={album.title}
-                  width={200}
-                  height={200}
-                  className="rounded-md mb-2 shadow-xl p-4"
-                />
-              </a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      {/* <div className="p-10">
-        <Formik
-          initialValues={{ id: '', title: '' }}
-          validationSchema={Yup.object({
-            id: Yup.string().required('Required'),
-            title: Yup.string().required('Required'),
-          })}
-          onSubmit={(values, { setSubmitting, resetForm }) => {
-            axios
-              .post('/api/albums', {
-                id: values.id,
-                title: values.title,
-              })
-              .then((response) => {
-                addAlbum(response.data)
-                resetForm()
-              })
-              .catch((error) => {
-                console.error('Error adding album:', error)
-              })
-              .finally(() => {
-                setSubmitting(false)
-              })
-          }}
-        >
-          <Form className="space-y-4 lg-mx-40 mx-10 mt-20 mb-20">
-            <h3 className="text-xl font-bold mb-10 text-center">
-              Add New Album
-            </h3>
-            <div>
-              <label
-                htmlFor="id"
-                className="block text-sm font-medium text-gray-700"
-              >
-                ID
-              </label>
-              <Field
-                type="text"
-                name="id"
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-              />
-              <ErrorMessage
-                name="id"
-                component="div"
-                className="text-red-500 text-sm"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="title"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Title
-              </label>
-              <Field
-                type="text"
-                name="title"
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-              />
-              <ErrorMessage
-                name="title"
-                component="div"
-                className="text-red-500 text-sm"
-              />
-            </div>
-            <button
-              type="submit"
-              className="py-2 px-4 bg-blue-500 text-white rounded-md w-full"
-            >
-              Add Album
-            </button>
-          </Form>
-        </Formik>
-      </div> */}
+      <main className="flex justify-center">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+          {albums.map((album) => (
+            <li key={album.id} className="relative group flex justify-center">
+              <Link href={`/albums/${album.id}`} passHref legacyBehavior>
+                <a className="relative block">
+                  <Image
+                    src={album.cover}
+                    alt={album.title}
+                    width={200}
+                    height={200}
+                    className="rounded-md mb-2 shadow-xl p-2 sm:p-4 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 transition-transform duration-300 transform group-hover:scale-90"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="text-white text-lg font-bold">Press</span>
+                  </div>
+                  <div className="absolute bottom-2 right-2 bg-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100">
+                    <FiArrowRight className="text-black" size={24} />
+                  </div>
+                </a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </main>
     </div>
   )
 }

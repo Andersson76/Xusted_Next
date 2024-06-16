@@ -29,9 +29,9 @@ export default function HomePage() {
 
   return (
     <>
-      <div className={`mt-40`}>
-        <BackgroundCircles />
-        {/* <main className={styles.center}>
+      <div className="mt-60"></div>
+      <BackgroundCircles />
+      {/* <main className={styles.center}>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-2">
             {albums.map((album) => (
               <li key={album.id}>
@@ -49,7 +49,6 @@ export default function HomePage() {
             ))}
           </ul>
         </main> */}
-      </div>
     </>
   )
 }
