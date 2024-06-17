@@ -2,18 +2,13 @@
 
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import React from 'react'
-//import Link from 'next/link'
 //import { Inter } from 'next/font/google'
 import BackgroundCircles from 'components/BackgroundCircles'
 
 //const inter = Inter({ subsets: ['latin'] })
 
-interface Props {
-  pageInfo: string
-}
-
-export default function HomePage({ pageInfo }: Props) {
-  const [text, count] = useTypewriter({
+const HomePage: React.FC = () => {
+  const [text] = useTypewriter({
     words: [
       'Welcome to Xusted official website',
       'Here you can listen to Xusted´s music',
@@ -33,3 +28,4 @@ export default function HomePage({ pageInfo }: Props) {
     </>
   )
 }
+export default HomePage
