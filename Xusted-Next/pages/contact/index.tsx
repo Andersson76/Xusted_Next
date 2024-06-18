@@ -31,7 +31,8 @@ const FormContainer = styled(Form)`
 const Label = styled.label`
   font-size: 0.875rem;
   font-weight: 500;
-  color: #333;
+  color: #ffff;
+  opacity: 70%;
 `
 
 const Input = styled(Field)`
@@ -59,13 +60,13 @@ const SubmitButton = styled.button`
   padding: 0.75rem;
   font-size: 1rem;
   color: white;
-  background-color: #0070f3;
+  background-color: #005bb5;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 
   &:hover {
-    background-color: #005bb5;
+    background-color: #0070f3;
   }
 `
 
@@ -86,45 +87,53 @@ export default function Contact() {
             .required('Required'),
           message: Yup.string().required('Required'),
         })}
-        onSubmit={(values, { setSubmitting }) => {
-          console.log(values)
-          setSubmitting(false)
+        onSubmit={async (values, { setSubmitting, resetForm }) => {
+          try {
+            const response = await fetch('/send-email', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(values),
+            })
+
+            if (response.ok) {
+              alert('Message sent successfully!')
+              resetForm()
+            } else {
+              alert('Failed to send message')
+            }
+          } catch (error) {
+            console.error('Error sending message:', error)
+            alert('Failed to send message')
+          } finally {
+            setSubmitting(false)
+          }
         }}
       >
-        <FormContainer>
-          <h3 className="text-xl font-bold mb-10 text-center">Contact</h3>
-          <div>
-            <Label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Name
-            </Label>
-            <Input type="text" name="name" />
-            <ErrorMessageStyled name="name" component="div" />
-          </div>
-          <div>
-            <Label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email
-            </Label>
-            <Input type="email" name="email" />
-            <ErrorMessageStyled name="email" component="div" />
-          </div>
-          <div>
-            <Label
-              htmlFor="message"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Message
-            </Label>
-            <TextArea as="textarea" name="message" />
-            <ErrorMessageStyled name="message" component="div" />
-          </div>
-          <SubmitButton type="submit">Send</SubmitButton>
-        </FormContainer>
+        {({ isSubmitting }) => (
+          <FormContainer>
+            <h3 className="text-xl font-bold mb-10 text-center">Contact</h3>
+            <div>
+              <Label htmlFor="name">Name</Label>
+              <Input type="text" name="name" />
+              <ErrorMessageStyled name="name" component="div" />
+            </div>
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input type="email" name="email" />
+              <ErrorMessageStyled name="email" component="div" />
+            </div>
+            <div>
+              <Label htmlFor="message">Message</Label>
+              <TextArea as="textarea" name="message" />
+              <ErrorMessageStyled name="message" component="div" />
+            </div>
+            <SubmitButton type="submit" disabled={isSubmitting}>
+              Send
+            </SubmitButton>
+          </FormContainer>
+        )}
       </Formik>
     </Container>
   )
