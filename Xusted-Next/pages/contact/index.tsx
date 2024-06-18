@@ -85,11 +85,11 @@ export default function Contact() {
           email: Yup.string()
             .email('Invalid email address')
             .required('Required'),
-          message: Yup.string().required('Required'),
+          /* message: Yup.string().required('Required'), */
         })}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           try {
-            const response = await fetch('/send-email', {
+            const response = await fetch('/api/send-email', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -113,7 +113,9 @@ export default function Contact() {
       >
         {({ isSubmitting }) => (
           <FormContainer>
-            <h3 className="text-xl font-bold mb-10 text-center">Contact</h3>
+            <h3 className="text-xl font-bold mb-10 text-center text-gray-300">
+              Contact
+            </h3>
             <div>
               <Label htmlFor="name">Name</Label>
               <Input type="text" name="name" />
