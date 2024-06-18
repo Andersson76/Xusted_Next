@@ -25,6 +25,8 @@ const navigation = [
           paddingLeft: '12px',
           paddingRight: '12px',
           marginBottom: '25px',
+          color: '#ffff',
+          opacity: '70%',
         }}
       />
     ),
@@ -41,6 +43,8 @@ const navigation = [
           paddingLeft: '12px',
           paddingRight: '12px',
           marginBottom: '25px',
+          color: '#ffff',
+          opacity: '70%',
         }}
       />
     ),
@@ -57,6 +61,8 @@ const navigation = [
           paddingLeft: '12px',
           paddingRight: '12px',
           marginBottom: '15px',
+          color: '#ffff',
+          opacity: '70%',
         }}
       />
     ),
@@ -71,6 +77,8 @@ const navigation = [
         style={{
           marginLeft: '10px',
           marginRight: '20px',
+          color: '#ffff',
+          opacity: '70%',
         }}
       />
     ),
@@ -93,7 +101,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
-          <p className="text-center text-xs leading-5 text-gray-500">
+          <p className="text-center text-xs leading-5 text-gray-400">
             &copy; 2024 XUSTED All rights reserved.
           </p>
         </div>
