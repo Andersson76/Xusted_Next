@@ -12,7 +12,7 @@ interface AlbumProps {
 
 const Album: React.FC<AlbumProps> = ({ id, title, cover, songs }) => {
   return (
-    <div className="grid place-items-center text-center mt-60">
+    <div className="grid place-items-center text-center min-h-screen">
       <Link href={`/albums/${id}`} passHref legacyBehavior>
         <a>
           <Image
