@@ -11,7 +11,6 @@ export default function Layout({ children }: { children: ReactNode }) {
       <html lang="en">
         <body>
           <Navbar />
-          <div className="mt-16"></div>
           <main>{children}</main>
           <Footer />
         </body>

@@ -16,8 +16,8 @@ const HomePage: React.FC = () => {
   return (
     <>
       <div className="mt-60"></div>
-      <BackgroundCircles />
-      <h1 className="text-2xl lg:text-6xl font-semibold px-10 text-center mt-16 text-white text-opacity-60">
+      {<BackgroundCircles />}
+      <h1 className="text-2xl lg:text-6xl font-semibold px-10 text-center mt-24 text-white text-opacity-60">
         <span className="mr-3">{text}</span>
         <Cursor cursorColor="#F7AB0A" />
       </h1>
