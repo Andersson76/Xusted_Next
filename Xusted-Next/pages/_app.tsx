@@ -5,17 +5,15 @@ import { AppProps } from 'next/app'
 import { AlbumProvider } from '../contexts/AlbumContext'
 import Navbar from '../components/Navbar'
 import '../styles/globals.css'
-//import '@/fontawesome'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-//import { config } from '@fortawesome/fontawesome-svg-core'
 import Footer from '../components/Footer'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AlbumProvider>
-      <div className="wrapper">
+      <div className="bg-black bg-opacity-80 min-h-screen flex flex-col">
         <Navbar />
-        <main>
+        <main className="flex-grow">
           <Component {...pageProps} />
         </main>
         <Footer />
