@@ -5,6 +5,8 @@ const next = require('next')
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const nodemailer = require('nodemailer')
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const cors = require('cors')
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config()
 
 const dev = process.env.NODE_ENV !== 'production'
@@ -16,6 +18,15 @@ const PORT = process.env.PORT || 3000
 
 // Middleware to parse JSON bodies
 app.use(express.json())
+
+// Use CORS middleware
+app.use(
+  cors({
+    origin: '*', // Allow requests from this origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allow these HTTP methods
+    credentials: true, // Allow cookies to be sent
+  }),
+)
 
 nextApp.prepare().then(() => {
   // POST endpoint to handle form submission

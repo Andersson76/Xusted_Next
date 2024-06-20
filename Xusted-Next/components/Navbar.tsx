@@ -15,6 +15,7 @@ const navigation = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
     <header className="fixed top-0 z-50">
@@ -50,11 +51,30 @@ export default function Navbar() {
           </a>
         </Link>
         <div className="flex flex-1 justify-end">
-          <Link href="#" legacyBehavior>
-            <a className="text-sm font-semibold leading-6 text-gray-900">
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
-          </Link>
+          {isLoggedIn && (
+            <Link href="/profile" legacyBehavior>
+              <a className="text-sm font-semibold leading-6 text-gray-900 ml-4">
+                You are logged in -
+              </a>
+            </Link>
+          )}
+          {isLoggedIn ? (
+            <button
+              onClick={() => setIsLoggedIn(false)} // Handle logout
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              - Log out <span aria-hidden="true">&rarr;</span>
+            </button>
+          ) : (
+            <Link href="#" legacyBehavior>
+              <a
+                onClick={() => setIsLoggedIn(true)} // Handle login
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                Log in <span aria-hidden="true">&rarr;</span>
+              </a>
+            </Link>
+          )}
         </div>
       </nav>
       <Dialog
