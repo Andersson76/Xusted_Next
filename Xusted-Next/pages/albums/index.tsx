@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAlbum } from '../../contexts/AlbumContext'
 import axios from 'axios'
 import Image from 'next/image'
@@ -11,7 +11,12 @@ import { FiArrowRight } from 'react-icons/fi'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Albums() {
-  const { albums, setAlbums } = useAlbum()
+  const { albums, setAlbums, addAlbum } = useAlbum()
+  const [newAlbum, setNewAlbum] = useState({
+    id: '',
+    title: '',
+    cover: '',
+  })
 
   useEffect(() => {
     if (albums.length === 0) {
@@ -26,6 +31,17 @@ export default function Albums() {
     }
   }, [albums, setAlbums])
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setNewAlbum((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    addAlbum(newAlbum)
+    setNewAlbum({ id: '', title: '', cover: '' })
+  }
+
   return (
     <div className={`mt-40`}>
       <h1
@@ -34,6 +50,42 @@ export default function Albums() {
         EP & Singles
       </h1>
       <main className="flex justify-center">
+        <form onSubmit={handleSubmit} className="mb-8 w-full max-w-md">
+          <h2 className="text-xl font-bold mb-4">Add New Album</h2>
+          <input
+            type="text"
+            name="id"
+            value={newAlbum.id}
+            onChange={handleChange}
+            placeholder="Album ID"
+            className="w-full mb-2 p-2 border rounded"
+            required
+          />
+          <input
+            type="text"
+            name="title"
+            value={newAlbum.title}
+            onChange={handleChange}
+            placeholder="Album Title"
+            className="w-full mb-2 p-2 border rounded"
+            required
+          />
+          <input
+            type="text"
+            name="cover"
+            value={newAlbum.cover}
+            onChange={handleChange}
+            placeholder="Album Cover URL"
+            className="w-full mb-2 p-2 border rounded"
+            required
+          />
+          <button
+            type="submit"
+            className="w-full p-2 bg-blue-500 text-white rounded"
+          >
+            Add Album
+          </button>
+        </form>
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
           {albums.map((album) => (
             <li key={album.id} className="relative group flex justify-center ">
