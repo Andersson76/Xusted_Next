@@ -1,10 +1,9 @@
-'use client'
-
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
+import emailjs from 'emailjs-com'
 
 const Container = styled(motion.div)`
   display: flex;
@@ -69,8 +68,31 @@ const SubmitButton = styled.button`
     background-color: #0070f3;
   }
 `
+interface FormValues extends Record<string, unknown> {
+  name: string
+  email: string
+  message: string
+}
 
 export default function Contact() {
+  const sendEmail = (values: FormValues) => {
+    emailjs
+      .send(
+        'service_jess2sh', // replace with your service ID
+        'template_jekjnjh', // replace with your template ID
+        values,
+        'L_YpGK_acTY0KRA5S', // replace with your user ID
+      )
+      .then((response) => {
+        console.log('Email successfully sent!', response.status, response.text)
+        alert('Message sent successfully!')
+      })
+      .catch((error) => {
+        console.error('Failed to send email.', error)
+        alert('Failed to send message')
+      })
+  }
+
   return (
     <Container
       initial={{ x: -500 }}
@@ -85,36 +107,15 @@ export default function Contact() {
           email: Yup.string()
             .email('Invalid email address')
             .required('Required'),
-          /* message: Yup.string().required('Required'), */
+          //message: Yup.string().required('Required'),
         })}
-        onSubmit={async (values, { setSubmitting, resetForm }) => {
-          try {
-            const response = await fetch(
-              'http://localhost:3000/api/send-email',
-              {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(values),
-              },
-            )
-
-            if (response.ok) {
-              alert('Message sent successfully!')
-              resetForm()
-            } else {
-              alert('Failed to send message')
-            }
-          } catch (error) {
-            console.error('Error sending message:', error)
-            alert('Failed to send message')
-          } finally {
-            setSubmitting(false)
-          }
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          sendEmail(values)
+          setSubmitting(false)
+          resetForm()
         }}
       >
-        {({ isSubmitting }) => (
+        {({ errors, touched, isSubmitting }) => (
           <FormContainer>
             <h3 className="text-xl font-bold mb-10 text-center text-gray-300">
               Contact
@@ -122,7 +123,9 @@ export default function Contact() {
             <div>
               <Label htmlFor="name">Name</Label>
               <Input type="text" name="name" />
-              <ErrorMessageStyled name="name" component="div" />
+              {errors.name && touched.name && (
+                <ErrorMessageStyled name="name" component="div" />
+              )}
             </div>
             <div>
               <Label htmlFor="email">Email</Label>
