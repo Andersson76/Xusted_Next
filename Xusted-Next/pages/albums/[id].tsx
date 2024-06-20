@@ -16,5 +16,5 @@ export default function AlbumPage() {
     return <div>Album not found</div>
   }
 
-  return <Album {...album} />
+  return <Album {...{ ...album, songs: album.songs || [] }} />
 }
