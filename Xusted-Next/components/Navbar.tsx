@@ -18,7 +18,7 @@ export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
-    <header className="fixed top-0 z-50">
+    <header className={`fixed top-0 z-50`}>
       <nav
         className={`mx-auto flex items-center justify-between p-6 lg:px-8 ${styles.thirteen}`}
         aria-label="Global"
