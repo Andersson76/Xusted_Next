@@ -12,6 +12,7 @@ interface FormValues extends Record<string, unknown> {
 
 export default function Contact() {
   const sendEmail = (values: FormValues) => {
+    console.log('Sending the following values:', values)
     emailjs
       .send(
         'service_jess2sh', // replace with your service ID
@@ -31,7 +32,7 @@ export default function Contact() {
 
   return (
     <motion.div
-      className="flex flex-col items-center justify-center p-5 mt-20"
+      className="flex flex-col items-center justify-center p-5 mt-32"
       initial={{ x: -500 }}
       animate={{ x: 0 }}
       transition={{ type: 'spring', stiffness: 50 }}
