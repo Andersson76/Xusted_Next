@@ -2,73 +2,8 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { motion } from 'framer-motion'
-import styled from 'styled-components'
 import emailjs from 'emailjs-com'
 
-const Container = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  margin-top: 80px;
-`
-
-const FormContainer = styled(Form)`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 20px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #e0e0e0;
-`
-
-const Label = styled.label`
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: black;
-  opacity: 80%;
-`
-
-const Input = styled(Field)`
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-`
-
-const TextArea = styled(Field)`
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-`
-
-const ErrorMessageStyled = styled(ErrorMessage)`
-  color: red;
-  font-size: 0.875rem;
-`
-
-const SubmitButton = styled.button`
-  padding: 0.75rem;
-  font-size: 1rem;
-  color: white;
-  background-color: #005bb5;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0070f3;
-  }
-`
 interface FormValues extends Record<string, unknown> {
   name: string
   email: string
@@ -95,7 +30,8 @@ export default function Contact() {
   }
 
   return (
-    <Container
+    <motion.div
+      className="flex flex-col items-center justify-center p-5 mt-20"
       initial={{ x: -500 }}
       animate={{ x: 0 }}
       transition={{ type: 'spring', stiffness: 50 }}
@@ -116,33 +52,74 @@ export default function Contact() {
         }}
       >
         {({ errors, touched, isSubmitting }) => (
-          <FormContainer>
-            <h3 className="text-xl font-bold my-5 text-center text-black opacity-75">
+          <Form className="flex flex-col gap-4 w-full max-w-lg mx-auto p-5 border border-gray-200 rounded-lg shadow-md bg-gray-200">
+            <h3 className="text-xl font-bold mb-5 text-center text-black opacity-75">
               Contact
             </h3>
             <div>
-              <Label htmlFor="name">Name</Label>
-              <Input type="text" name="name" />
+              <label
+                htmlFor="name"
+                className="text-sm font-medium text-black opacity-80"
+              >
+                Name
+              </label>
+              <Field
+                type="text"
+                name="name"
+                className="w-full p-2 mt-1 border border-gray-300 rounded"
+              />
               {errors.name && touched.name && (
-                <ErrorMessageStyled name="name" component="div" />
+                <div className="text-red-500 text-sm mt-1">
+                  <ErrorMessage name="name" />
+                </div>
               )}
             </div>
             <div>
-              <Label htmlFor="email">Email</Label>
-              <Input type="email" name="email" />
-              <ErrorMessageStyled name="email" component="div" />
+              <label
+                htmlFor="email"
+                className="text-sm font-medium text-black opacity-80"
+              >
+                Email
+              </label>
+              <Field
+                type="email"
+                name="email"
+                className="w-full p-2 mt-1 border border-gray-300 rounded"
+              />
+              {errors.email && touched.email && (
+                <div className="text-red-500 text-sm mt-1">
+                  <ErrorMessage name="email" />
+                </div>
+              )}
             </div>
             <div>
-              <Label htmlFor="message">Message</Label>
-              <TextArea as="textarea" name="message" />
-              <ErrorMessageStyled name="message" component="div" />
+              <label
+                htmlFor="message"
+                className="text-sm font-medium text-black opacity-80"
+              >
+                Message
+              </label>
+              <Field
+                as="textarea"
+                name="message"
+                className="w-full p-2 mt-1 border border-gray-300 rounded h-28"
+              />
+              {errors.message && touched.message && (
+                <div className="text-red-500 text-sm mt-1">
+                  <ErrorMessage name="message" />
+                </div>
+              )}
             </div>
-            <SubmitButton type="submit" disabled={isSubmitting}>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="p-3 text-white bg-blue-600 rounded hover:bg-blue-700"
+            >
               Send
-            </SubmitButton>
-          </FormContainer>
+            </button>
+          </Form>
         )}
       </Formik>
-    </Container>
+    </motion.div>
   )
 }
