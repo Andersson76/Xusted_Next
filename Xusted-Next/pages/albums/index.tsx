@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect /* useState */ } from 'react'
 import { useAlbum } from '../../contexts/AlbumContext'
 import axios from 'axios'
 import Image from 'next/image'
@@ -11,12 +11,12 @@ import { FiArrowRight } from 'react-icons/fi'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Albums() {
-  const { albums, setAlbums, addAlbum } = useAlbum()
-  const [newAlbum, setNewAlbum] = useState({
+  const { albums, setAlbums /* addAlbum */ } = useAlbum()
+  /* const [newAlbum, setNewAlbum] = useState({
     id: '',
     title: '',
     cover: '',
-  })
+  }) */
 
   useEffect(() => {
     if (albums.length === 0) {
@@ -31,7 +31,7 @@ export default function Albums() {
     }
   }, [albums, setAlbums])
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  /*   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setNewAlbum((prev) => ({ ...prev, [name]: value }))
   }
@@ -40,7 +40,7 @@ export default function Albums() {
     e.preventDefault()
     addAlbum(newAlbum)
     setNewAlbum({ id: '', title: '', cover: '' })
-  }
+  } */
 
   return (
     <div className={`mt-40`}>
@@ -70,7 +70,7 @@ export default function Albums() {
             </li>
           ))}
         </ul>
-        <form
+        {/* <form
           onSubmit={handleSubmit}
           className="mt-20 w-full max-w-md flex flex-col items-center"
         >
@@ -110,7 +110,7 @@ export default function Albums() {
           >
             Add Album
           </button>
-        </form>
+        </form> */}
       </main>
     </div>
   )
