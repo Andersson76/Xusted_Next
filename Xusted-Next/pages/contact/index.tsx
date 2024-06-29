@@ -81,7 +81,7 @@ export default function Contact() {
       .send(
         'service_jess2sh', // replace with your service ID
         'template_jekjnjh', // replace with your template ID
-        values,
+        values, // make sure this object contains { name, email, message }
         'L_YpGK_acTY0KRA5S', // replace with your user ID
       )
       .then((response) => {
@@ -107,7 +107,7 @@ export default function Contact() {
           email: Yup.string()
             .email('Invalid email address')
             .required('Required'),
-          message: Yup.string(),
+          message: Yup.string().required('Required'), // make sure message is required
         })}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           sendEmail(values)
