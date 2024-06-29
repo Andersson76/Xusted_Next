@@ -25,13 +25,14 @@ const FormContainer = styled(Form)`
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #e0e0e0;
 `
 
 const Label = styled.label`
   font-size: 0.875rem;
   font-weight: 500;
-  color: #ffff;
-  opacity: 70%;
+  color: black;
+  opacity: 80%;
 `
 
 const Input = styled(Field)`
@@ -98,7 +99,6 @@ export default function Contact() {
       initial={{ x: -500 }}
       animate={{ x: 0 }}
       transition={{ type: 'spring', stiffness: 50 }}
-      className="contact"
     >
       <Formik
         initialValues={{ name: '', email: '', message: '' }}
@@ -107,7 +107,7 @@ export default function Contact() {
           email: Yup.string()
             .email('Invalid email address')
             .required('Required'),
-          //message: Yup.string().required('Required'),
+          message: Yup.string(),
         })}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           sendEmail(values)
@@ -117,7 +117,7 @@ export default function Contact() {
       >
         {({ errors, touched, isSubmitting }) => (
           <FormContainer>
-            <h3 className="text-xl font-bold mb-10 text-center text-gray-300">
+            <h3 className="text-xl font-bold my-5 text-center text-black opacity-75">
               Contact
             </h3>
             <div>

@@ -53,9 +53,7 @@ export default function Navbar() {
         <div className="flex flex-1 justify-end">
           {isLoggedIn && (
             <Link href="/profile" legacyBehavior>
-              <a className="text-sm font-semibold leading-6 text-gray-900 ml-4">
-                You are logged in -
-              </a>
+              <a className="text-sm font-semibold leading-6 text-gray-900 ml-4"></a>
             </Link>
           )}
           {isLoggedIn ? (
@@ -63,7 +61,7 @@ export default function Navbar() {
               onClick={() => setIsLoggedIn(false)} // Handle logout
               className="text-sm font-semibold leading-6 text-gray-900"
             >
-              - Log out <span aria-hidden="true">&rarr;</span>
+              Log out <span aria-hidden="true">&rarr;</span>
             </button>
           ) : (
             <Link href="#" legacyBehavior>
