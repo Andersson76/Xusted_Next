@@ -9,7 +9,7 @@ const navigation = [
 function Buttons() {
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
-    <div className="pt-5 flex flex-col gap-4 items-center">
+    <div className="pt-5 flex flex-col gap-4 items-center lg:hidden">
       {navigation.map((item) => (
         // eslint-disable-next-line react/react-in-jsx-scope
         <Link key={item.name} href={item.href} legacyBehavior>
