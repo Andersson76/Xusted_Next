@@ -11,7 +11,7 @@ import Footer from '../components/Footer'
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AlbumProvider>
-      <div className="min-h-screen flex flex-col">
+      <div className="wrapper">
         <Navbar />
         <main className="flex-grow">
           <Component {...pageProps} />
