@@ -31,9 +31,9 @@ export default function Contact() {
   }
 
   return (
-    <div className="wrapper">
+    <div className="wrapper mt-24">
       <motion.div
-        className="flex flex-col items-center justify-center p-5 mt-20"
+        className="flex flex-col items-center justify-center p-5 min-h-[60vh]"
         initial={{ x: -500 }}
         animate={{ x: 0 }}
         transition={{ type: 'spring', stiffness: 50 }}
