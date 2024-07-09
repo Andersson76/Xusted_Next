@@ -9,11 +9,15 @@ import React, {
 } from 'react'
 import axios from 'axios'
 
+interface Song {
+  title: string
+  duration: string
+}
 interface Album {
   id: string
   title: string
   cover: string
-  songs?: string[]
+  songs: Song[]
 }
 
 interface AlbumContextProps {
