@@ -30,7 +30,7 @@ const Album: React.FC<AlbumProps> = ({ title, cover, songs }) => {
         <ul className="mt-5">
           {songs.map((song, index) => (
             <li key={index} className="hover:bg-gray-700 px-4 py-2">
-              {song}
+              {song.title} - {song.duration}
             </li>
           ))}
         </ul>
