@@ -7,7 +7,6 @@ import Navbar from '../components/Navbar'
 import '../styles/globals.css'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import Footer from '../components/Footer'
-//import AlbumList from 'components/AlbumList'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
