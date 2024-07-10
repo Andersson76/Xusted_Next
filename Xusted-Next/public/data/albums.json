@@ -3,9 +3,21 @@
     "id": "1",
     "title": "Ice Picker",
     "songs": [
-      { "title": "Ice Picker", "duration": "3:20" },
-      { "title": "Cold Horizon", "duration": "4:43" },
-      { "title": "Fishermans Friend", "duration": "3:24" }
+      {
+        "title": "Ice Picker",
+        "duration": "3:20",
+        "file": "/audio/ice_picker.wav"
+      },
+      {
+        "title": "Cold Horizon",
+        "duration": "4:43",
+        "file": "/audio/cold_horizon.wav"
+      },
+      {
+        "title": "Fishermans Friend",
+        "duration": "3:24",
+        "file": "/audio/fishermans_friend.wav"
+      }
     ],
     "cover": "/images/albums/IcePicker.png"
   },
@@ -13,23 +25,33 @@
     "id": "2",
     "title": "Tunnel Visions",
     "songs": [
-      { "title": "Tunnel 1", "duration": "5:32" },
-      { "title": "Tunnel 2", "duration": "4:29" }
+      {
+        "title": "Tunnel 1",
+        "duration": "5:32",
+        "file": "/audio/tunnel_1.wav"
+      },
+      { "title": "Tunnel 2", "duration": "4:29", "file": "/audio/tunnel_2.wav" }
     ],
     "cover": "/images/albums/TunnelVisions.png"
   },
   {
     "id": "3",
     "title": "Awake Slumber",
-    "songs": [{ "title": "Awake Slumber", "duration": "7:32" }],
+    "songs": [
+      {
+        "title": "Awake Slumber",
+        "duration": "7:32",
+        "file": "/audio/"
+      }
+    ],
     "cover": "/images/albums/AwakeSlumber.png"
   },
   {
     "id": "4",
     "title": "TYO OYT",
     "songs": [
-      { "title": "TYO", "duration": "2:40" },
-      { "title": "OYT", "duration": "3:45" }
+      { "title": "TYO", "duration": "2:40", "file": "/audio/tyo.wav" },
+      { "title": "OYT", "duration": "3:45", "file": "/audio/oyt.wav" }
     ],
     "cover": "/images/albums/tyooyt.png"
   },
@@ -37,23 +59,33 @@
     "id": "5",
     "title": "Receptor",
     "songs": [
-      { "title": "Receptor", "duration": "7:08" },
-      { "title": "Receptor L2", "duration": "6:35" }
+      {
+        "title": "Receptor",
+        "duration": "7:08",
+        "file": "/audio/"
+      },
+      {
+        "title": "Receptor L2",
+        "duration": "6:35",
+        "file": "/audio/"
+      }
     ],
     "cover": "/images/albums/receptor.png"
   },
   {
     "id": "6",
     "title": "Busted",
-    "songs": [{ "title": "Busted", "duration": "5:56" }],
+    "songs": [
+      { "title": "Busted", "duration": "5:56", "file": "/audio/busted.wav" }
+    ],
     "cover": "/images/albums/busted.png"
   },
   {
     "id": "7",
     "title": "Maze",
     "songs": [
-      { "title": "Maze", "duration": "3:29" },
-      { "title": "Sensor", "duration": "5:31" }
+      { "title": "Maze", "duration": "3:29", "file": "/audio/maze.wav" },
+      { "title": "Sensor", "duration": "5:31", "file": "/audio/sensor.wav" }
     ],
     "cover": "/images/albums/maze.png"
   }

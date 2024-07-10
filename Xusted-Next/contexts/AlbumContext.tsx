@@ -12,6 +12,7 @@ import axios from 'axios'
 interface Song {
   title: string
   duration: string
+  file: string
 }
 interface Album {
   id: string
