@@ -11,12 +11,12 @@
       {
         "title": "Cold Horizon",
         "duration": "4:43",
-        "file": "/audio/cold_horizon.wav"
+        "file": "/audio/cold_horizon.mp3"
       },
       {
         "title": "Fishermans Friend",
         "duration": "3:24",
-        "file": "/audio/fishermans_friend.wav"
+        "file": "/audio/fishermans_friend.mp3"
       }
     ],
     "cover": "/images/albums/IcePicker.png"
@@ -28,9 +28,9 @@
       {
         "title": "Tunnel 1",
         "duration": "5:32",
-        "file": "/audio/tunnel_1.wav"
+        "file": "/audio/tunnel_1.mp3"
       },
-      { "title": "Tunnel 2", "duration": "4:29", "file": "/audio/tunnel_2.wav" }
+      { "title": "Tunnel 2", "duration": "4:29", "file": "/audio/tunnel_2.mp3" }
     ],
     "cover": "/images/albums/TunnelVisions.png"
   },
@@ -50,8 +50,8 @@
     "id": "4",
     "title": "TYO OYT",
     "songs": [
-      { "title": "TYO", "duration": "2:40", "file": "/audio/tyo.wav" },
-      { "title": "OYT", "duration": "3:45", "file": "/audio/oyt.wav" }
+      { "title": "TYO", "duration": "2:40", "file": "/audio/tyo.mp3" },
+      { "title": "OYT", "duration": "3:45", "file": "/audio/oyt.mp3" }
     ],
     "cover": "/images/albums/tyooyt.png"
   },
@@ -62,12 +62,12 @@
       {
         "title": "Receptor",
         "duration": "7:08",
-        "file": "/audio/"
+        "file": "/audio/receptor.mp3"
       },
       {
         "title": "Receptor L2",
         "duration": "6:35",
-        "file": "/audio/"
+        "file": "/audio/receptor_2.mp3"
       }
     ],
     "cover": "/images/albums/receptor.png"
@@ -76,7 +76,7 @@
     "id": "6",
     "title": "Busted",
     "songs": [
-      { "title": "Busted", "duration": "5:56", "file": "/audio/busted.wav" }
+      { "title": "Busted", "duration": "5:56", "file": "/audio/busted.mp3" }
     ],
     "cover": "/images/albums/busted.png"
   },
@@ -84,8 +84,8 @@
     "id": "7",
     "title": "Maze",
     "songs": [
-      { "title": "Maze", "duration": "3:29", "file": "/audio/maze.wav" },
-      { "title": "Sensor", "duration": "5:31", "file": "/audio/sensor.wav" }
+      { "title": "Maze", "duration": "3:29", "file": "/audio/maze.mp3" },
+      { "title": "Sensor", "duration": "5:31", "file": "/audio/sensor.mp3" }
     ],
     "cover": "/images/albums/maze.png"
   }
