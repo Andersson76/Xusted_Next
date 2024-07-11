@@ -92,7 +92,6 @@ const Album: React.FC<AlbumProps> = ({ title, cover, songs }) => {
             autoPlay
             className="mt-5"
             src={currentSong}
-            /* type="audio/wav" */
             onEnded={() => setCurrentSong(null)}
           >
             Your browser does not support the audio element.
