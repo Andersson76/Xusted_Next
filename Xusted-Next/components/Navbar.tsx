@@ -15,7 +15,7 @@ const navigation = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  //const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
     <header className={`fixed top-0 z-50`}>
@@ -51,7 +51,7 @@ export default function Navbar() {
           </a>
         </Link>
         <div className="flex flex-1 justify-end">
-          {isLoggedIn && (
+          {/* {isLoggedIn && (
             <Link href="/profile" legacyBehavior>
               <a className="text-sm font-semibold leading-6 text-gray-900 ml-4"></a>
             </Link>
@@ -72,7 +72,7 @@ export default function Navbar() {
                 Log in <span aria-hidden="true">&rarr;</span>
               </a>
             </Link>
-          )}
+          )} */}
         </div>
       </nav>
       <Dialog
