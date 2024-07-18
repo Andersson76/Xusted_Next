@@ -2,6 +2,7 @@ import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import React from 'react'
 import BackgroundCircles from 'components/BackgroundCircles'
 import Buttons from 'components/Buttons'
+import Head from 'next/head'
 
 const HomePage: React.FC = () => {
   const [text] = useTypewriter({
@@ -12,6 +13,13 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="wrapper">
+      <Head>
+        <title>Xusted Music - Your electronic music website</title>
+        <meta
+          name="description"
+          content="Listen to music from Xusted, contact Xusted, see Xusted album cover graphic"
+        />
+      </Head>
       <BackgroundCircles />
       <div className="absolute inset-0 flex flex-col justify-center items-center">
         <h1 className="text-2xl lg:text-6xl font-semibold px-10 text-center text-white text-opacity-60">
