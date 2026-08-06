@@ -1,10 +1,9 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
-import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon /* XMarkIcon  */ } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import styles from '../styles/Home.module.css'
 
 const navigation = [
@@ -15,7 +14,6 @@ const navigation = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  //const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
     <header className={`fixed top-0 z-50`}>
@@ -27,8 +25,8 @@ export default function Navbar() {
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
               <Link key={item.name} href={item.href} legacyBehavior>
-                <a className="text-sm font-semibold leading-6 text-gray-900">
-                  {item.name}
+                <a className={styles.navLink} data-label={item.name}>
+                  <span>{item.name}</span>
                 </a>
               </Link>
             ))}
@@ -45,9 +43,8 @@ export default function Navbar() {
           </div>
         </div>
         <Link href="/" legacyBehavior>
-          <a className="-m-1.5 p-1.5">
-            <span className="sr-only">Xusted</span>
-            <h1 className="h-8 w-auto text-gray-700">XUSTED</h1>
+          <a className={styles.wordmarkLink} aria-label="Xusted – startsida">
+            <span className={styles.wordmark}>XUSTED</span>
           </a>
         </Link>
         <div className="flex flex-1 justify-end">
@@ -89,7 +86,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              {/*<XMarkIcon className="h-6 w-6" aria-hidden="true" /> */}
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
           <div className="space-y-2">

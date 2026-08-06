@@ -90,7 +90,6 @@
   transform: translateZ(0);
 }
 
-.logo,
 .thirteen {
   position: relative;
 }
@@ -100,12 +99,9 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 75px;
-  padding: 25px 10px;
-  margin-top: 35px;
-  margin-bottom: 35px;
-  margin-left: 10px;
-  margin-right: 0;
+  height: 88px;
+  padding: 20px clamp(1rem, 3vw, 2rem);
+  margin: 24px 0;
   transform: translateZ(0);
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -121,7 +117,7 @@
 
 /* Conic Gradient Animation */
 .thirteen::before {
-  animation: 6s rotate linear infinite;
+  animation: 18s rotate linear infinite;
   content: '';
   position: absolute;
   top: -50%;
@@ -131,9 +127,9 @@
   height: 200%;
   background: conic-gradient(
     from 135deg,
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.6)
+    rgba(255, 255, 255, 0.48),
+    rgba(247, 171, 10, 0.2),
+    rgba(255, 255, 255, 0.48)
   );
 }
 
@@ -150,6 +146,159 @@
   background-clip: content-box;
 }
 
+.navLink {
+  position: relative;
+  display: inline-grid;
+  overflow: hidden;
+  padding: 0.35rem 0.1rem 0.45rem;
+  color: #111827;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  border-radius: 0.25rem;
+  outline-offset: 0.3rem;
+}
+
+.navLink span,
+.navLink::after {
+  grid-area: 1 / 1;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navLink::after {
+  content: attr(data-label);
+  color: #8a4f00;
+  transform: translateY(140%);
+}
+
+.navLink::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0.18rem;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(247, 171, 10, 0.45) 20%,
+    #f7ab0a 50%,
+    rgba(247, 171, 10, 0.45) 80%,
+    transparent
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navLink:hover span,
+.navLink:focus-visible span {
+  transform: translateY(-140%);
+}
+
+.navLink:hover::after,
+.navLink:focus-visible::after {
+  transform: translateY(0);
+}
+
+.navLink:hover::before,
+.navLink:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.navLink:focus-visible {
+  outline: 2px solid #f7ab0a;
+}
+
+.wordmarkLink {
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  place-items: center;
+  padding: 0.4rem 0.3rem;
+  border-radius: 999px;
+  outline-offset: 0.4rem;
+}
+
+.wordmarkLink::before {
+  content: '';
+  position: absolute;
+  inset: 8% -14%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(247, 171, 10, 0.24) 0%,
+    rgba(247, 171, 10, 0.09) 42%,
+    transparent 72%
+  );
+  filter: blur(11px);
+  opacity: 0.42;
+  transform: scale(0.95);
+  animation: wordmarkHalo 4.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.wordmarkLink:focus-visible {
+  outline: 2px solid #f7ab0a;
+}
+
+.wordmark {
+  position: relative;
+  display: inline-block;
+  padding-left: 0.16em;
+  color: #111827;
+  font-size: clamp(1.75rem, 1.2rem + 1.9vw, 2.625rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: clamp(0.12em, 0.09em + 0.18vw, 0.18em);
+  text-transform: uppercase;
+}
+
+.wordmark::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -0.32rem;
+  left: 0.16em;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(247, 171, 10, 0.45) 24%,
+    #f7ab0a 50%,
+    rgba(247, 171, 10, 0.45) 76%,
+    transparent 100%
+  );
+  opacity: 0.35;
+  transform: scaleX(0.35);
+  transform-origin: center;
+  pointer-events: none;
+  animation: wordmarkLine 4.8s ease-in-out infinite;
+}
+
+@media (max-width: 639px) {
+  .thirteen {
+    height: 76px;
+    padding: 16px 18px;
+    margin: 16px 0;
+  }
+
+  .wordmark {
+    padding-left: 0.12em;
+    font-size: 1.75rem;
+    letter-spacing: 0.12em;
+  }
+
+  .wordmark::after {
+    left: 0.12em;
+  }
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
@@ -162,9 +311,38 @@
   }
 }
 
-@media (prefers-reduced-motion) {
+@media (prefers-reduced-motion: reduce) {
   .thirteen::before {
     animation: none;
+  }
+
+  .navLink span,
+  .navLink::after,
+  .navLink::before {
+    transition: none;
+  }
+
+  .navLink:hover span,
+  .navLink:focus-visible span {
+    color: #8a4f00;
+    transform: none;
+  }
+
+  .navLink:hover::after,
+  .navLink:focus-visible::after {
+    transform: translateY(140%);
+  }
+
+  .wordmark::after {
+    animation: none;
+    opacity: 0.65;
+    transform: scaleX(1);
+  }
+
+  .wordmarkLink::before {
+    animation: none;
+    opacity: 0.42;
+    transform: none;
   }
 
   .card:hover span {
@@ -178,5 +356,29 @@
   }
   to {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes wordmarkLine {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleX(0.35);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes wordmarkHalo {
+  0%,
+  100% {
+    opacity: 0.36;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.68;
+    transform: scale(1.04);
   }
 }

@@ -102,7 +102,7 @@ export default function Footer() {
         </div>
         <div className="md:order-1 md:mt-0">
           <p className="text-center text-xs leading-5 text-gray-400">
-            &copy; 2024 XUSTED All rights reserved.
+            &copy; 2026 XUSTED All rights reserved.
           </p>
         </div>
       </div>

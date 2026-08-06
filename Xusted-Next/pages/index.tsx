@@ -1,42 +1,116 @@
-import { Cursor, useTypewriter } from 'react-simple-typewriter'
-import React, { Suspense, lazy } from 'react'
+'use client'
+
+import React from 'react'
 import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import { PauseIcon, PlayIcon } from '@heroicons/react/24/solid'
+import albumsData from '../public/data/albums.json'
+import { usePlayerControls } from '../contexts/PlayerContext'
+import { createPlayerQueue, getAlbumDuration } from '../lib/playerTracks'
+import styles from '../styles/HomeHero.module.css'
 
-const BackgroundCircles = lazy(() => import('components/BackgroundCircles'))
-const Buttons = lazy(() => import('components/Buttons'))
+const featuredAlbum = albumsData[0]
+const featuredQueue = createPlayerQueue(featuredAlbum)
+const featuredTrack = featuredQueue[0]
+const featuredDuration = getAlbumDuration(featuredAlbum.songs)
+const transmissionId = featuredAlbum.id.padStart(3, '0')
 
-const HomePage: React.FC = () => {
-  const [text] = useTypewriter({
-    words: ['Welcome to Xusted', 'Listen to Xusted', 'Contact Xusted'],
-    loop: true,
-    delaySpeed: 3000,
-  })
+export default function HomePage() {
+  const { currentTrack, status, isPlaying, toggleTrack } = usePlayerControls()
+  const featuredTrackIsActive = currentTrack?.id === featuredTrack.id
+  const featuredTrackCanPause =
+    featuredTrackIsActive && (isPlaying || status === 'loading')
+  const featuredAlbumIsPlaying =
+    isPlaying && currentTrack?.albumId === featuredAlbum.id
 
   return (
-    <div className="wrapper">
+    <div className={styles.page}>
       <Head>
-        <title>Xusted Music - Your electronic music website</title>
+        <title>{featuredAlbum.title} — Featured release by Xusted</title>
         <meta
           name="description"
-          content="Listen to music from Xusted, contact Xusted, see Xusted album cover graphic"
+          content={`Enter the Xusted music archive and listen to the featured release ${featuredAlbum.title}.`}
         />
       </Head>
-      <Suspense fallback={<div>Loading...</div>}>
-        <BackgroundCircles />
-      </Suspense>
-      <div className="absolute inset-0 flex flex-col justify-center items-center">
-        <h1 className="text-2xl lg:text-6xl font-semibold px-10 text-center text-white text-opacity-60">
-          <span className="mr-1">{text}</span>
-          <Cursor cursorColor="#F7AB0A" />
-        </h1>
-        <div className="mt-5">
-          <Suspense fallback={<div>Loading...</div>}>
-            <Buttons />
-          </Suspense>
+
+      <section className={styles.hero} aria-labelledby="featured-title">
+        <div className={styles.copy}>
+          <p className={styles.eyebrow}>
+            <span aria-hidden="true" />
+            XUSTED / FEATURED RELEASE
+          </p>
+
+          <h1 id="featured-title" className={styles.title}>
+            {featuredAlbum.title}
+          </h1>
+
+          <p className={styles.lede}>
+            Electronic music by Xusted. Start a signal and let it follow you
+            through the archive.
+          </p>
+
+          <div className={styles.actions}>
+            <button
+              type="button"
+              className={styles.primaryAction}
+              onClick={() => void toggleTrack(featuredTrack, featuredQueue)}
+              aria-label={
+                featuredTrackCanPause
+                  ? `Pause ${featuredTrack.title}`
+                  : `Play ${featuredTrack.title}`
+              }
+            >
+              {featuredTrackCanPause ? (
+                <PauseIcon aria-hidden="true" />
+              ) : (
+                <PlayIcon aria-hidden="true" />
+              )}
+              {featuredTrackCanPause
+                ? 'PAUSE SIGNAL'
+                : `PLAY ${featuredAlbum.title.toUpperCase()}`}
+            </button>
+
+            <Link className={styles.secondaryAction} href="/albums">
+              EXPLORE RELEASES
+              <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+
+          <dl className={styles.metadata}>
+            <div>
+              <dt>TRANSMISSION</dt>
+              <dd>{transmissionId}</dd>
+            </div>
+            <div>
+              <dt>TRACKS</dt>
+              <dd>{featuredAlbum.songs.length.toString().padStart(2, '0')}</dd>
+            </div>
+            <div>
+              <dt>RUNTIME</dt>
+              <dd>{featuredDuration}</dd>
+            </div>
+          </dl>
         </div>
-      </div>
+
+        <div className={styles.receiver} data-playing={featuredAlbumIsPlaying}>
+          <Link
+            href={`/albums/${featuredAlbum.id}`}
+            className={styles.coverFrame}
+            aria-label={`Open ${featuredAlbum.title}`}
+          >
+            <Image
+              src={featuredAlbum.cover}
+              alt={`${featuredAlbum.title} album cover`}
+              fill
+              priority
+              sizes="(max-width: 760px) 78vw, (max-width: 1100px) 45vw, 430px"
+              className={styles.cover}
+            />
+            <span className={styles.scanline} aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }
-
-export default HomePage
