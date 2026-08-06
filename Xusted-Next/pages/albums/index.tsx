@@ -1,14 +1,11 @@
 'use client'
 
-import React, { useEffect /* useState */ } from 'react'
+import React, { useEffect } from 'react'
 import { useAlbum } from '../../contexts/AlbumContext'
 import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Inter } from 'next/font/google'
 import { FiArrowRight } from 'react-icons/fi'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Albums() {
   const { albums, setAlbums } = useAlbum()
@@ -27,34 +24,31 @@ export default function Albums() {
   }, [albums, setAlbums])
 
   return (
-    <div className="wrapper">
-      <main className="flex flex-col items-center">
-        <h1
-          className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xlfont-bold text-gray-400 text-center mt-24 ${inter.className}`}
-        >
-          EP & Singles
-        </h1>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
-          {albums.map((album) => (
-            <li key={album.id} className="relative group flex justify-center ">
-              <Link href={`/albums/${album.id}`} passHref legacyBehavior>
-                <a className="relative block">
-                  <Image
-                    src={album.cover}
-                    alt={album.title}
-                    width={200}
-                    height={200}
-                    className="rounded-md mb-2 shadow-xl p-2 sm:p-4 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 transition-transform duration-300 transform group-hover:scale-90"
-                  />
-                  <div className="absolute bottom-2 right-2 bg-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100">
-                    <FiArrowRight className="text-black" size={24} />
-                  </div>
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </main>
-    </div>
+    <section
+      className="flex flex-col items-center px-4 pb-6 pt-32"
+      aria-label="Albums"
+    >
+      <ul className="grid w-full max-w-[72rem] grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {albums.map((album) => (
+          <li key={album.id} className="group relative flex justify-center">
+            <Link href={`/albums/${album.id}`} passHref legacyBehavior>
+              <a className="relative block w-4/5 max-w-[20rem] outline-none focus-visible:ring-2 focus-visible:ring-[#f7ab0a] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0d0f10] sm:w-full sm:max-w-[14rem]">
+                <Image
+                  src={album.cover}
+                  alt={album.title}
+                  width={320}
+                  height={320}
+                  sizes="(max-width: 639px) 80vw, 224px"
+                  className="aspect-square h-auto w-full rounded-md object-cover shadow-xl transition-transform duration-300 group-hover:scale-[0.97]"
+                />
+                <div className="absolute bottom-3 right-3 rounded-full bg-white p-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+                  <FiArrowRight className="text-black" size={24} />
+                </div>
+              </a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
   )
 }

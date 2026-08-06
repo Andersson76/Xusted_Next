@@ -19,7 +19,6 @@ const navigation = [
     icon: () => (
       <FontAwesomeIcon
         icon={faYoutube}
-        beat
         size="2x"
         style={{
           paddingLeft: '12px',
@@ -37,7 +36,6 @@ const navigation = [
     icon: () => (
       <FontAwesomeIcon
         icon={faSpotify}
-        bounce
         size="2x"
         style={{
           paddingLeft: '12px',
@@ -55,7 +53,6 @@ const navigation = [
     icon: () => (
       <FontAwesomeIcon
         icon={faItunes}
-        shake
         size="2x"
         style={{
           paddingLeft: '12px',
